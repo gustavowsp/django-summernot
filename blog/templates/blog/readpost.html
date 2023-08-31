@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block 'css' %}
+<link rel="stylesheet" href="{% static 'read.css'%}">
+{%endblock%}
+
+{% block 'body' %}
+    
+ <div class="postagem artigo">
+
+    <h3>{{artigo.titulo}}</h3>
+    <small>{{artigo.data_criacao}}</small>
+    <p>{{artigo.descricao}}</p>
+    <hr>
+    {{artigo.blog_post|safe}}
+ </div>
+
+{% endblock 'body' %}
+
+

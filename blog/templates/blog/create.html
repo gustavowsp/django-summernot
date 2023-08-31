@@ -1,0 +1,31 @@
+
+{%extends 'base.html' %}
+{% load static %}
+
+{% block 'css' %}
+
+<link rel="stylesheet" href="{% static 'create.css' %}">
+{{ form.media }}
+
+{% endblock %}
+
+{% block 'body' %}
+
+    <form method="post">
+        
+        {% csrf_token %}
+        
+        {% for field in form%}
+
+        <div class="input">
+            <label for="{{field.id_for_label}}">{{field.label}}</label>
+            {{field}}
+        </div>
+
+        {%endfor%}
+        
+        <input class="btn btn-success btn-block" type="submit" value="Salvar">
+        
+    </form>
+
+{% endblock %}

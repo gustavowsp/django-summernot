@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block 'body' %}
+    {% if artigos%}
+    <div id="box">
+        {% for artigo in artigos %}
+        <a href="{% url 'blog:read_post' artigo.id %}">
+            <div class="artigo">
+                <h3>{{artigo.titulo}}</h3>
+                <small>{{artigo.data_criacao}}</small>
+                <p>{{artigo.descricao}}</p>
+            </div>
+        </a>
+        {%endfor%}
+    </div>
+    {%else%}
+    <h2 class="text-center">Nao ha artigos!</h2>
+    {%endif%}
+
+{% endblock 'body' %}
+
+
